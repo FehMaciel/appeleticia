@@ -1,4 +1,3 @@
-// DateTimePicker.js
 import React from "react";
 import { View, Text, TextInput, Pressable } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";

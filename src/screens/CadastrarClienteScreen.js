@@ -32,7 +32,6 @@ const CadastrarClienteScreen = () => {
                 setNomeCliente("");
                 setTelefoneCliente("");
 
-                // Navegar de volta para a tela anterior
                 navigation.goBack();
             } else {
                 Alert.alert("Erro", data.error || "Erro ao cadastrar cliente");

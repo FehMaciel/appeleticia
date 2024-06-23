@@ -1,16 +1,14 @@
-// screens/CadastrarProcedimentoScreen.js
 import React, { useState, useEffect } from "react";
 import { View, TextInput, Button, Alert, Text, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const CadastrarProcedimentoScreen = ({ route, navigation }) => {
-    const { procedimento } = route.params; // Recebe o procedimento como parâmetro
+    const { procedimento } = route.params;
     const [nomeProcedimento, setNomeProcedimento] = useState("");
     const [valorProcedimento, setValorProcedimento] = useState("");
     const [duracaoProcedimento, setDuracaoProcedimento] = useState("");
 
     useEffect(() => {
-        // Se existir um procedimento, preenche os campos do formulário com seus valores
         if (procedimento) {
             setNomeProcedimento(procedimento.nome_procedimento);
             setValorProcedimento(procedimento.valor_procedimento.toString());
@@ -26,7 +24,7 @@ const CadastrarProcedimentoScreen = ({ route, navigation }) => {
                 ? `https://eleticia.vercel.app/api/procedimentos/${procedimento.id_procedimento}`
                 : "https://eleticia.vercel.app/api/procedimentos";
 
-            const method = procedimento ? "PUT" : "POST"; // Decide se é cadastro ou atualização
+            const method = procedimento ? "PUT" : "POST";
 
             const response = await fetch(url, {
                 method: method,
@@ -48,7 +46,7 @@ const CadastrarProcedimentoScreen = ({ route, navigation }) => {
                     : "Procedimento cadastrado com sucesso";
 
                 Alert.alert("Sucesso", message);
-                navigation.goBack(); // Volta para a tela anterior após o cadastro/atualização
+                navigation.goBack();
             } else {
                 Alert.alert(
                     "Erro",

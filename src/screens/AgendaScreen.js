@@ -42,14 +42,12 @@ const AgendaScreen = ({ route }) => {
                         agendamentosPorDia[date] = [];
                     }
                     if (agendamento.funcionario !== null) {
-                        // Verifica se o funcionário não é null
                         agendamentosPorDia[date].push(agendamento);
                     }
                 });
 
                 setAgendamentos(agendamentosPorDia);
 
-                // Marcar datas no calendário
                 const marked = {};
                 Object.keys(agendamentosPorDia).forEach((date) => {
                     marked[date] = {
@@ -70,7 +68,6 @@ const AgendaScreen = ({ route }) => {
 
                 setMarkedDates(marked);
 
-                // Ordenar agendamentos por data e pegar os mais recentes
                 const sortedAgendamentos = data.data
                     .filter((agendamento) => agendamento.funcionario !== null)
                     .sort(
@@ -100,14 +97,12 @@ const AgendaScreen = ({ route }) => {
                         agendamentosPorDia[date] = [];
                     }
                     if (agendamento.funcionarios !== null) {
-                        // Verifica se o funcionário não é null
                         agendamentosPorDia[date].push(agendamento);
                     }
                 });
 
                 setAgendamentos(agendamentosPorDia);
 
-                // Marcar datas no calendário
                 const marked = {};
                 Object.keys(agendamentosPorDia).forEach((date) => {
                     marked[date] = {
@@ -128,7 +123,6 @@ const AgendaScreen = ({ route }) => {
 
                 setMarkedDates(marked);
 
-                // Ordenar agendamentos por data e pegar os mais recentes
                 const sortedAgendamentos = data.data
                     .filter((agendamento) => agendamento.funcionario !== null)
                     .sort(
@@ -184,13 +178,12 @@ const AgendaScreen = ({ route }) => {
                 </Pressable>
             );
         } else {
-            return null; // Retorna null se o funcionário for null
+            return null;
         }
     };
 
     const renderModalItem = ({ item }) => {
         if (item.funcionarios != null) {
-            // Verifica se o funcionário não é null
             return (
                 <View style={styles.item}>
                     <Text>Data: {item.data_agendamento}</Text>
@@ -205,7 +198,7 @@ const AgendaScreen = ({ route }) => {
                 </View>
             );
         } else {
-            return null; // Retorna null se o funcionário for null
+            return null;
         }
     };
 

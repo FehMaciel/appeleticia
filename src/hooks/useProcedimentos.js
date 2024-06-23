@@ -1,4 +1,3 @@
-// useProcedimentos.js
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 

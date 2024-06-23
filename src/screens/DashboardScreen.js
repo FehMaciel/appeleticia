@@ -1,4 +1,3 @@
-// screens/DashboardScreen.js
 import { React, useState, useEffect } from "react";
 import {
     View,
@@ -75,7 +74,6 @@ const DashboardScreen = ({ route }) => {
                         <Pressable
                             style={styles.button}
                             onPress={() => {
-                                console.log(id_funcionario, nivel);
                                 navigation.navigate("Agenda", {
                                     id_funcionario,
                                     nivel,
@@ -122,17 +120,15 @@ const DashboardScreen = ({ route }) => {
                             appointment.funcionarios != null
                     )
                     .sort((a, b) => {
-                        // Ordenar por data (mais recente para mais antiga)
                         if (a.data_agendamento > b.data_agendamento) return -1;
                         if (a.data_agendamento < b.data_agendamento) return 1;
 
-                        // Se as datas forem iguais, ordenar por horário (mais recente para mais antigo)
                         if (a.horario_agendamento > b.horario_agendamento)
                             return -1;
                         if (a.horario_agendamento < b.horario_agendamento)
                             return 1;
 
-                        return 0; // Manter a ordem atual
+                        return 0;
                     })
                     .map((appointment) => (
                         <View
@@ -178,17 +174,15 @@ const DashboardScreen = ({ route }) => {
                             appointment.funcionarios != null
                     )
                     .sort((a, b) => {
-                        // Ordenar por data (mais recente para mais antiga)
                         if (a.data_agendamento > b.data_agendamento) return -1;
                         if (a.data_agendamento < b.data_agendamento) return 1;
 
-                        // Se as datas forem iguais, ordenar por horário (mais recente para mais antigo)
                         if (a.horario_agendamento > b.horario_agendamento)
                             return -1;
                         if (a.horario_agendamento < b.horario_agendamento)
                             return 1;
 
-                        return 0; // Manter a ordem atual
+                        return 0;
                     })
                     .map((appointment) => (
                         <View
@@ -237,17 +231,15 @@ const DashboardScreen = ({ route }) => {
                             appointment.funcionarios != null
                     )
                     .sort((a, b) => {
-                        // Ordenar por data (mais recente para mais antiga)
                         if (a.data_agendamento > b.data_agendamento) return -1;
                         if (a.data_agendamento < b.data_agendamento) return 1;
 
-                        // Se as datas forem iguais, ordenar por horário (mais recente para mais antigo)
                         if (a.horario_agendamento > b.horario_agendamento)
                             return -1;
                         if (a.horario_agendamento < b.horario_agendamento)
                             return 1;
 
-                        return 0; // Manter a ordem atual
+                        return 0;
                     })
                     .map((appointment) => (
                         <View
@@ -297,7 +289,7 @@ const DashboardScreen = ({ route }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // justifyContent: 'center',
+
         alignItems: "start",
         padding: 20,
         backgroundColor: "#EFEFEF",

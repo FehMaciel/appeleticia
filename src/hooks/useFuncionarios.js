@@ -1,4 +1,3 @@
-// useFuncionarios.js
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 
@@ -15,7 +14,7 @@ const useFuncionarios = () => {
                 "https://eleticia.vercel.app/api/funcionarios"
             );
             const data = await response.json();
-            console.log(data);
+
             if (response.ok) {
                 setFuncionarios(
                     data.data.map((funcionario) => ({

@@ -1,4 +1,3 @@
-// screens/DashboardScreen.js
 import React from "react";
 import { View, Text, Button, StyleSheet, Alert, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -8,8 +7,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const DetalhesAgendamentosScreen = ({ route }) => {
     const { appointment } = route.params;
     const navigation = useNavigation();
-
-    console.log(appointment);
 
     const handleAction = async (action) => {
         let payload = {
@@ -28,7 +25,6 @@ const DetalhesAgendamentosScreen = ({ route }) => {
                 payload.pedido_concluido = 2;
                 break;
             case "reagendar":
-                // Implementar lógica de reagendamento aqui, se necessário
                 break;
             case "pago":
                 payload.pedido_pago = true;
@@ -51,8 +47,6 @@ const DetalhesAgendamentosScreen = ({ route }) => {
                     body: JSON.stringify(payload),
                 }
             );
-
-            console.log(response);
 
             if (response.ok) {
                 Alert.alert("Sucesso", `Agendamento ${action} com sucesso`);

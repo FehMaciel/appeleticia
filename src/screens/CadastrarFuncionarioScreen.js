@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, TextInput, Button, Alert, Pressable } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    TextInput,
+    Button,
+    Alert,
+    Pressable,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -15,7 +23,6 @@ const CadastrarFuncionarioScreen = () => {
     const isEdicao = funcionario ? true : false;
 
     useEffect(() => {
-        // Se existir um funcionário, preenche os campos do formulário com seus valores
         if (funcionario) {
             setNomeFuncionario(funcionario.nome_funcionario);
             setCpfFuncionario(funcionario.cpf_funcionario);
@@ -29,7 +36,7 @@ const CadastrarFuncionarioScreen = () => {
                 ? `https://eleticia.vercel.app/api/funcionarios/${funcionario.id_funcionario}`
                 : "https://eleticia.vercel.app/api/funcionarios";
 
-            const method = funcionario ? "PUT" : "POST"; // Decide se é cadastro ou atualização
+            const method = funcionario ? "PUT" : "POST";
 
             const response = await fetch(url, {
                 method: method,
@@ -50,7 +57,7 @@ const CadastrarFuncionarioScreen = () => {
                     ? "Funcionário atualizado com sucesso"
                     : "Funcionário cadastrado com sucesso";
                 Alert.alert("Sucesso", message);
-                navigation.goBack(); // Volta para a tela anterior após o cadastro/atualização
+                navigation.goBack();
             } else {
                 Alert.alert(
                     "Erro",
@@ -86,7 +93,7 @@ const CadastrarFuncionarioScreen = () => {
                     value={cpfFuncionario}
                     onChangeText={setCpfFuncionario}
                     keyboardType="numeric"
-                    editable={!isEdicao} // CPF não pode ser editado após o cadastro
+                    editable={!isEdicao}
                 />
                 {!isEdicao && (
                     <TextInput

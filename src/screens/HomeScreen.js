@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 const HomeScreen = () => {
@@ -14,8 +14,18 @@ const HomeScreen = () => {
         try {
             const userData = await AsyncStorage.getItem("userData");
             if (userData) {
-                const { cpf_funcionario, nome_funcionario, nivel, id_funcionario } = JSON.parse(userData);
-                navigation.navigate("Dashboard", { cpf_funcionario, nome_funcionario, nivel, id_funcionario });
+                const {
+                    cpf_funcionario,
+                    nome_funcionario,
+                    nivel,
+                    id_funcionario,
+                } = JSON.parse(userData);
+                navigation.navigate("Dashboard", {
+                    cpf_funcionario,
+                    nome_funcionario,
+                    nivel,
+                    id_funcionario,
+                });
             }
         } catch (error) {
             console.error("Erro ao verificar o status de login:", error);

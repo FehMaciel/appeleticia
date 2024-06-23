@@ -1,4 +1,3 @@
-// screens/LoginScreen.js
 import React, { useState } from "react";
 import {
     View,
@@ -34,11 +33,10 @@ const LoginScreen = () => {
             );
 
             const data = await response.json();
-            console.log(data);
+
             if (data.error) {
                 Alert.alert("Revise os Dados", "Usuário ou Senha Incorretos");
             } else {
-                // Salvar dados de login no AsyncStorage
                 await AsyncStorage.setItem(
                     "userData",
                     JSON.stringify({
@@ -49,7 +47,6 @@ const LoginScreen = () => {
                     })
                 );
 
-                // Navegar para a tela Dashboard
                 navigation.navigate("Dashboard", {
                     cpf_funcionario: cpf,
                     nome_funcionario: data.data.nome_funcionario,
@@ -64,20 +61,22 @@ const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="CPF"
-                value={cpf}
-                onChangeText={(text) => setCpf(text)}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Senha"
-                value={senha}
-                onChangeText={(text) => setSenha(text)}
-                secureTextEntry={true}
-            />
+            <View style={{ flex: 1, justifyContent: "center" }}>
+                <Text style={styles.title}>Login</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="CPF"
+                    value={cpf}
+                    onChangeText={(text) => setCpf(text)}
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Senha"
+                    value={senha}
+                    onChangeText={(text) => setSenha(text)}
+                    secureTextEntry={true}
+                />
+            </View>
             <Pressable style={styles.buttonHero} onPress={handleLogin}>
                 <Text style={styles.textButton}>Logar</Text>
             </Pressable>
@@ -89,8 +88,7 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+
         padding: 20,
         backgroundColor: "#EFEFEF",
     },

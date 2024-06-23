@@ -21,7 +21,6 @@ const FuncionariosScreen = () => {
                 }
             } catch (error) {
                 console.error("Erro ao buscar funcionários:", error);
-                // Tratar erro de busca (ex: exibir mensagem para o usuário)
             }
         };
 

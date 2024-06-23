@@ -1,4 +1,3 @@
-// screens/ProcedimentosScreen.js
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -22,7 +21,6 @@ const ProcedimentosScreen = () => {
                 }
             } catch (error) {
                 console.error("Erro ao buscar procedimentos:", error);
-                // Tratar erro de busca (ex: exibir mensagem para o usuário)
             }
         };
 
